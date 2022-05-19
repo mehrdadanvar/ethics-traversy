@@ -10,6 +10,10 @@ const getGoals = (req, res) => {
 // @route   POST /api/goals
 // @access  Private 
 const setGoal = (req, res) => {
+    if(!req.body.text){
+        res.status(400)
+        throw new Error('please inculde a text field in the request body so that the api return some shit to you')
+    }
     res.status(200).json({message:'we are setting gaols here remember it is singular and a post request!'})
 };
 
