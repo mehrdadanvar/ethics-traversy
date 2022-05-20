@@ -6,15 +6,16 @@ const {
   updateGoals,
   deleteGoal,
 } = require("../controllers/goalController");
-
+// calling the protect middleware
+const { protect } = require("../middleware/authMiddleware");
 //
-router.get("/", getGoals);
-router.post("/", setGoal);
+router.get("/", protect, getGoals);
+router.post("/", protect, setGoal);
 // do it even cleaner by the following syntanx if you like
 // router.route('/').get(getGoals).post(setGoal)
 // router.route('/:id').put(updateGoals).delete(deleteGoal)
 
-router.put("/:id", updateGoals);
-router.delete("/:id", deleteGoal);
+router.put("/:id", protect, updateGoals);
+router.delete("/:id", protect, deleteGoal);
 
 module.exports = router;
