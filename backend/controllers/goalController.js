@@ -34,29 +34,31 @@ const setGoal = asyncHandler(async (req, res) => {
 // @route   PUT /api/goals/:id
 // @access  Private
 const updateGoals = asyncHandler(async (req, res) => {
-    const goal = await Goal.findById(req.params.id)
-    if(!goal) {
-        res.status(400)
-        throw new Error('oops there are no goals to be found!')
-    }
-    const updatedGoal = await Goal.findByIdAndUpdate(req.params.id,req.body,{ new : true})
-    res.status(200).json(updatedGoal)
-    //res.status(200).json({ message: `update goal number ${req.params.id}` });
+  const goal = await Goal.findById(req.params.id);
+  if (!goal) {
+    res.status(400);
+    throw new Error("oops there are no goals to be found!");
+  }
+  const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+  res.status(200).json(updatedGoal);
+  //res.status(200).json({ message: `update goal number ${req.params.id}` });
 });
 
 // @desc    Delete gaols
 // @route   DELETE /api/goals/:id
 // @access  Private
 const deleteGoal = asyncHandler(async (req, res) => {
-    const goal = await Goal.findById(req.params.id)
-    if(!goal){
-         res.status(400)
-         throw new Error(`we didnt find any items by the id of ${req.params.id}`)
-     }
-    //await Goal.findOneAndDelete(req.params.id)
-    await goal.remove()
-    res.status(200).json({id : req.params.id})
-    // res.status(200).json({ message: `yohoooy we are feleting goal number ${req.params.id}` });
+  const goal = await Goal.findById(req.params.id);
+  if (!goal) {
+    res.status(400);
+    throw new Error(`we didnt find any items by the id of ${req.params.id}`);
+  }
+  //await Goal.findOneAndDelete(req.params.id)
+  await goal.remove();
+  res.status(200).json({ id: req.params.id });
+  // res.status(200).json({ message: `yohoooy we are feleting goal number ${req.params.id}` });
 });
 
 module.exports = {
