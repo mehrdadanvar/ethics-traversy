@@ -7,8 +7,8 @@ const User = require("../models/userModel");
 //@route    POST /api/users
 //@access   Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
-  if (!name || !email || !password) {
+  const { firstname, lastname, username, email, password } = req.body;
+  if (!firstname || !lastname || !username || !email || !password) {
     res.status(400);
     throw new Error("please make sure all the required fields are provided!");
   }
@@ -25,7 +25,9 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // create and save the user
   const user = await User.create({
-    name,
+    firstname,
+    lastname,
+    username,
     email,
     password: hashedPassword,
   });
@@ -33,7 +35,9 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({
       _id: user.id,
-      name: user.name,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      username: user.username,
       email: user.email,
       token: generateToken(user._id),
     });
@@ -58,7 +62,9 @@ const loginUser = asyncHandler(async (req, res) => {
   if (user && bcrypt.compare(password, user.password)) {
     res.json({
       _id: user.id,
-      name: user.name,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      username: user.username,
       email: user.email,
       token: generateToken(user._id),
     });
@@ -72,11 +78,11 @@ const loginUser = asyncHandler(async (req, res) => {
 //@route    GET /api/users/me
 //@access   Private
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, name, email} = await User.findById(req.user.id)
+  const { _id, username, email } = await User.findById(req.user.id);
   res.status(200).json({
     id: _id,
-    name,
-    email
+    username,
+    email,
   });
 });
 // generating a JWT
