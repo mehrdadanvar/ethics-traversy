@@ -1,8 +1,8 @@
 <template>
-  <section class="hero">
+  <section class="hero mt-2 pt-2">
     <div class="container">
       <form
-        class="box p r-6 mr-6"
+        class="box pr-6 mr-1 ml-1 mt-1"
         @submit.prevent="submitHandler"
         method="post"
       >
@@ -80,7 +80,9 @@
         </div>
         <div class="field" v-if="passwordCheckHandler">{{}}</div>
         <div class="submit">
-          <button class="button is-primary">Create an Account</button>
+          <button class="button is-primary pr-3 pl-3 mr-6 ml-6">
+            Create an Account
+          </button>
         </div>
         <div class="pt-6 pb-2">
           <p>
@@ -131,6 +133,6 @@ export default {
 
 <style lang="scss">
 .container {
-  background-color: rgb(152, 152, 190);
+  background-color: rgb(208, 208, 227);
 }
 </style>

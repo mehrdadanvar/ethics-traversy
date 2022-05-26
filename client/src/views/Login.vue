@@ -1,5 +1,5 @@
 <template>
-  <section class="hero">
+  <section class="hero mt-2 pt-2">
     <div class="container">
       <form class="box" @submit.prevent="loginHandler" method="post">
         <div class="field">
@@ -31,14 +31,6 @@
           <button class="button is-primary">Login</button>
         </div>
       </form>
-    </div>
-    <div>
-      <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione aliquid
-        dolores expedita facere laudantium optio perspiciatis repellendus
-        delectus tempora dolor, laboriosam ipsa? Voluptatibus quidem quo nisi
-        excepturi accusantium, ea obcaecati?
-      </section>
     </div>
   </section>
 </template>
