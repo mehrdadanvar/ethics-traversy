@@ -1,7 +1,11 @@
 <template>
   <section class="hero">
     <div class="container">
-      <form class="box pr-6 mr-6" @submit.prevent="submitHandler" method="post">
+      <form
+        class="box p r-6 mr-6"
+        @submit.prevent="submitHandler"
+        method="post"
+      >
         <div class="field">
           <label class="label">First Name</label>
           <div class="control">
@@ -26,12 +30,12 @@
             />
           </div>
         </div>
-        <div class="field my-5">
-          <label class="label is-size-6">Username</label>
+        <div class="field">
+          <label class="label">Username</label>
           <div class="control">
             <input
               type="text"
-              class="input is-size-1"
+              class="input"
               placeholder="e.g barrak.obamma"
               name="username"
               v-model="username"
@@ -54,7 +58,7 @@
           <label class="label">Password</label>
           <div class="control">
             <input
-              class="input py-4 my-4 px-6"
+              class="input"
               type="password"
               placeholder="******** should be longer than 5 characters"
               name="password"
@@ -68,7 +72,7 @@
             <input
               class="input"
               type="password"
-              placeholder="******** should be longer than 5 characters"
+              placeholder=">5 characters"
               name="password2"
               v-model="password2"
             />
@@ -76,49 +80,15 @@
         </div>
         <div class="field" v-if="passwordCheckHandler">{{}}</div>
         <div class="submit">
-          <button class="button is-primary py-1 px-3 my-">
-            Create an Account
-          </button>
+          <button class="button is-primary">Create an Account</button>
+        </div>
+        <div class="pt-6 pb-2">
+          <p>
+            already have an account?
+            <router-link to="/Login" class="">login here</router-link>
+          </p>
         </div>
       </form>
-    </div>
-    <div>
-      <div>
-        <p>
-          already have an account?
-          <router-link to="/Login">login here</router-link>
-        </p>
-      </div>
-    </div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <div class="is-size-1">hello world</div>
-    <section class="section">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto eligendi
-      totam soluta numquam ducimus odit modi debitis rerum dolore repellendus
-      ipsum minus facilis quasi quos, perferendis optio dolorum labore commodi
-      eos, quia culpa sapiente unde sequi. Aperiam consectetur iusto, nostrum
-      magnam harum voluptas nesciunt consequatur doloremque repudiandae. Soluta
-      nobis mollitia harum vel odit dolor atque fugiat et architecto nam
-      molestiae impedit sapiente, ratione eaque dicta rem. Quos, aperiam
-      consequuntur quam qui voluptatem nesciunt aut hic reprehenderit tempore
-      earum impedit numquam repellat maiores quod voluptatum magnam incidunt
-      aliquam fugit unde cumque eos iusto ipsa? Eligendi corporis optio dolor
-      ipsam eveniet a.
-    </section>
-    <div class="container">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos,
-      alias hic? Fugiat, quibusdam consequatur. Sequi officiis consectetur ipsum
-      dolore non. Doloribus, eveniet? Facere nostrum doloremque dolor quaerat
-      odit amet dolorum.
     </div>
   </section>
 </template>
@@ -161,6 +131,6 @@ export default {
 
 <style lang="scss">
 .container {
-  background-color: blue;
+  background-color: rgb(152, 152, 190);
 }
 </style>

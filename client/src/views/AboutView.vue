@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>deleted h2</h1>
-  </div>
+  <section class="container">
+    <h1 class="is-size-3">this is the about page</h1>
+  </section>
 </template>
