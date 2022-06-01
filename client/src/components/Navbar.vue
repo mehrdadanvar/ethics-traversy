@@ -8,10 +8,11 @@
         <router-link to="/" class="navbar-item">Home</router-link>
         <router-link to="/about" class="navbar-item">About</router-link>
         <router-link to="/register" class="navbar-item">Register</router-link>
+        <router-link to="/case" class="navbar-item">cases</router-link>
+
       </div>
     </div>
   </nav>
-  <router-view />
 </template>
 
 <script>

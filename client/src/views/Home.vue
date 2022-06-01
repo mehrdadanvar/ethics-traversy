@@ -1,11 +1,15 @@
 <template>
   <section class="section">
-    <div class="title">Dashboard</div>
-    <div class="content">this is some content</div>
+    <div class="title">
+      <div class="has-size-3">Dashboard</div>
+    </div>
+    <h1 class="block has-background-success-lighter mb-6">
+      <div>Here you can get a list of Users</div>
+    </h1>
     <div class="container">
       <div class="box">
         <div class="table-container">
-          <table class="table is-narrow is-fullwidth">
+          <table class="table is-narrow is-full-width">
             <th>Identifier</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -21,9 +25,18 @@
           </table>
         </div>
 
-        <div class="button is-success" @click="getUsers">Get from Database</div>
+        <div class="button is-primary" @click="getUsers">Get from Database</div>
       </div>
     </div>
+    <section>
+      <div class="container">
+        <div class="box mt-6">
+          <div class="card">
+
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 

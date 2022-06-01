@@ -3,7 +3,7 @@
     <div class="container">
       <form class="box" @submit.prevent="loginHandler" method="post">
         <div class="field">
-          <label class="label">FDU Email Adress</label>
+          <label class="label">FDU pemail Adress</label>
           <div class="control">
             <input
               type="text"
@@ -48,13 +48,15 @@ export default {
   },
   methods: {
     loginHandler() {
+      // const email = this.email;
+      // const password = this.password;
       axios
         .post("http://localhost:5000/api/users/login", {
           email: this.email,
           password: this.password,
         })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           alert("hoora success you are loged in");
         })
         .catch((error) => {

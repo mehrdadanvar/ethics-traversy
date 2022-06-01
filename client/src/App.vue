@@ -3,6 +3,7 @@
   <!-- <Navbar /> -->
   <Header />
   <Navbar />
+  <router-view />
 </template>
 
 <script>
@@ -10,14 +11,16 @@
 // const navbarMenu = document.querySelector("#menu");
 // burgerIcon.addEventListener("click", () => {
 //   navbarMenu.classlist.toggle("is-active");
-// });
+// })
 import Header from "./components/Header.vue";
 import Navbar from "./components/Navbar.vue";
+import Case from "./views/Case.vue";
 export default {
   name: "App",
   components: {
     Header,
     Navbar,
+    Case,
   },
 };
 </script>
