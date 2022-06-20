@@ -1,15 +1,17 @@
 <template>
   <nav class="navbar has-shadow is-white">
     <div class="navbar-brand">
-      <img src="../assets/logo.jpg" alt="" class="image my-2 mx-2 is-128x128" />
+      <img src="../assets/logo.jpg" alt="" class="image my-2 mx-2 is-96x96" />
     </div>
     <div class="navbar-menu">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
+        <router-link to="/case" class="navbar-item">cases</router-link>
+        <router-link to="/dashboard" class="navbar-item">dashboard</router-link>
+      </div>
+      <div class="navbar-end">
         <router-link to="/about" class="navbar-item">About</router-link>
         <router-link to="/register" class="navbar-item">Register</router-link>
-        <router-link to="/case" class="navbar-item">cases</router-link>
-
       </div>
     </div>
   </nav>
@@ -21,5 +23,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

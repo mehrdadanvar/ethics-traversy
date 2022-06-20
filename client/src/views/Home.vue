@@ -7,33 +7,32 @@
       <div>Here you can get a list of Users</div>
     </h1>
     <div class="container">
-      <div class="box">
-        <div class="table-container">
-          <table class="table is-narrow is-full-width">
-            <th>Identifier</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-            <th>Email Address</th>
-            <tr v-for="user in usersList" v-bind:key="user.id">
-              <td>{{ user._id }}</td>
-              <td>{{ user.firstname }}</td>
-              <td>{{ user.lastname }}</td>
-              <td>{{ user.username }}</td>
-              <td>{{ user.email }}</td>
-            </tr>
-          </table>
+      <KeepAlive>
+        <div class="box">
+          <div class="table-container">
+            <table class="table is-narrow is-full-width">
+              <th>Identifier</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+              <th>Email Address</th>
+              <tr v-for="user in usersList" v-bind:key="user.id">
+                <td>{{ user._id }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="button is-primary" @click="getUsers">Get from Database</div>
         </div>
-
-        <div class="button is-primary" @click="getUsers">Get from Database</div>
-      </div>
+      </KeepAlive>
     </div>
     <section>
       <div class="container">
         <div class="box mt-6">
-          <div class="card">
-
-          </div>
+          <div class="card"></div>
         </div>
       </div>
     </section>
@@ -66,5 +65,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
