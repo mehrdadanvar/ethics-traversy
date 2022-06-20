@@ -2,25 +2,34 @@
   <section class="section mt-2 pt-2">
     <div class="container">
       <div class="box">
-        <h1 class="title is-size-4">Welcome to the registration Page</h1>
-        <p class="text">Please go through the following form with your FDU email address</p>
-        <article class="message is-danger">
+        <h1 class="title is-size-4 my-4">Welcome to the registration Page</h1>
+
+        <article class="message is-warning">
           <div class="message-header">
             <p>registration Form Details</p>
           </div>
           <div class="message-content">
-            <p>Please read this part with care</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, tenetur repellat
-              vero porro explicabo cum deleniti? Nobis obcaecati vero quis, aliquid provident
-              facilis dolor temporibus? Ratione nihil porro id facilis.
-            </p>
+            <li class="text">Please read this part with care</li>
+            <li class="text">Please go through the following form with your FDU email address</li>
+            <li class="text">
+              Providing your First Name and Last Name will significantly assisst un in tracking your
+              contribution to the project and facilitates furthur communication between the authors
+            </li>
+            <li>
+              the user name could be an arbitrary combination of characters, preferably a memorable
+              piece of text such as first.last name
+            </li>
+            <li class="text">please use your FDU email address for operating this repository</li>
+            <li class="text">
+              Conidering a strong and complicated password which is longer than 5 characters, will
+              ensure the security of this portal and your information
+            </li>
           </div>
         </article>
       </div>
     </div>
 
-    <div class="container">
+    <div class="box">
       <form class="box pr-6 mr-1 ml-1 mt-1" @submit.prevent="submitHandler" method="post">
         <h1 class="title is-size-4 mt-2 mb-6">Registration Form</h1>
         <hr />
@@ -150,7 +159,8 @@ export default {
 <style scoped>
 .section {
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-columns: 3fr 4fr;
+  column-gap: 10px;
 }
 .box {
   border-radius: 2rem;
