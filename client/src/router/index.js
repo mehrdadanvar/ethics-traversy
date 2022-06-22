@@ -34,6 +34,11 @@ const routes = [
     name: "dashboard",
     component: () => import("../views/Dashboard.vue"),
   },
+  {
+    path: "/articlebuilder",
+    name: "articlebuilder",
+    components: () => import("../views/AB.vue"),
+  },
 ];
 
 const router = createRouter({

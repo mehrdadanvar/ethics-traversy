@@ -75,7 +75,6 @@ const loginUser = asyncHandler(async (req, res) => {
   // res.json({ message: "this is login a user" });
 });
 
-
 // @description Get user data
 //@route    GET /api/users/mw
 //@access   Private
@@ -99,22 +98,18 @@ const generateToken = (id) => {
 //@access   Private
 
 const queryAll = asyncHandler(async (req, res) => {
-
   // const { _id, firstname, lastname, username, email, password } = await User.find({});
   const test = await User.find({});
   const test2 = JSON.stringify(test);
   console.log("query satisfied");
   res.status(200).json({
-    test
+    test,
   });
 });
-
-
-
 
 module.exports = {
   registerUser,
   loginUser,
   getMe,
-  queryAll
+  queryAll,
 };

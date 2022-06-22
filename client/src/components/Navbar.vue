@@ -1,13 +1,14 @@
 <template>
-  <nav class="navbar has-shadow is-white">
+  <nav class="navbar has-shadow is-success">
     <div class="navbar-brand">
-      <img src="../assets/logo.jpg" alt="" class="image my-2 mx-2 is-96x96" />
+      <!-- <img src="../assets/logo.jpg" alt="" class="image my-2 mx-2 is-96x96" /> -->
     </div>
     <div class="navbar-menu">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
         <router-link to="/case" class="navbar-item">cases</router-link>
         <router-link to="/dashboard" class="navbar-item">dashboard</router-link>
+        <router-link to="/articlebuilder" class="navbar-item">Post an Article</router-link>
       </div>
       <div class="navbar-end">
         <router-link to="/about" class="navbar-item">About</router-link>
