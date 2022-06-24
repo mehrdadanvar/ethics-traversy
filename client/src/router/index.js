@@ -37,7 +37,7 @@ const routes = [
   {
     path: "/articlebuilder",
     name: "articlebuilder",
-    components: () => import("../views/AB.vue"),
+    component: () => import("../views/AB.vue"),
   },
 ];
 

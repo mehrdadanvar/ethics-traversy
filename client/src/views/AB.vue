@@ -1,4 +1,5 @@
 <template>
+  <!-- <div class="hero">hello from the view</div> -->
   <AB />
 </template>
 

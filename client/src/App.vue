@@ -12,12 +12,12 @@
 //   navbarMenu.classlist.toggle("is-active");
 // })
 import Navbar from "./components/Navbar.vue";
-import Case from "./views/Case.vue";
+// import Case from "./views/Case.vue";
 export default {
   name: "App",
   components: {
     Navbar,
-    Case,
+    // Case,
   },
 };
 </script>
