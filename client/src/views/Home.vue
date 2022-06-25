@@ -65,36 +65,7 @@
         </div>
       </div>
     </section>
-    <section class="container">
-      <div class="title">
-        <div class="has-size-3">Adminstrator home</div>
-      </div>
-      <h1 class="block has-background-success-lighter mb-6">
-        <div>Here you can get a list of Users</div>
-      </h1>
-      <div class="container">
-        <div class="box">
-          <div class="table-container">
-            <table class="table is-narrow is-full-width">
-              <th>Identifier</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-              <th>Email Address</th>
-              <tr v-for="user in usersList" v-bind:key="user.id">
-                <td>{{ user._id }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-              </tr>
-            </table>
-          </div>
-          <div class="button is-primary" @click="getUsers">Get from Database</div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
+        <section class="section">
       <div class="row-1">
         <div class="left">
           <div class="title is-size-2">Start Contributing to your University Ethics Project</div>
@@ -191,7 +162,7 @@ export default {
 <style scoped>
 .head-container {
   display: grid;
-  grid-template-rows: 3fr 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
 }
 .row-1 {
   display: grid;
