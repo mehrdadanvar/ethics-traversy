@@ -7,8 +7,8 @@ const User = require("../models/userModel");
 //@route    POST /api/users
 //@access   Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { firstname, lastname, username, email, password } = req.body;
-  if (!firstname || !lastname || !username || !email || !password) {
+  const { firstname, lastname, email, password } = req.body;
+  if (!firstname || !lastname || !email || !password) {
     res.status(400);
     throw new Error("please make sure all the required fields are provided!");
   }
@@ -27,7 +27,6 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     firstname,
     lastname,
-    username,
     email,
     password: hashedPassword,
   });
@@ -37,7 +36,6 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       firstname: user.firstname,
       lastname: user.lastname,
-      username: user.username,
       email: user.email,
       token: generateToken(user._id),
     });
@@ -64,7 +62,6 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user.id,
       firstname: user.firstname,
       lastname: user.lastname,
-      username: user.username,
       email: user.email,
       token: generateToken(user._id),
     });
@@ -79,10 +76,9 @@ const loginUser = asyncHandler(async (req, res) => {
 //@route    GET /api/users/mw
 //@access   Private
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, username, email } = await User.findById(req.user.id);
+  const { _id, email } = await User.findById(req.user.id);
   res.status(200).json({
     id: _id,
-    username,
     email,
   });
 });
@@ -98,7 +94,7 @@ const generateToken = (id) => {
 //@access   Private
 
 const queryAll = asyncHandler(async (req, res) => {
-  // const { _id, firstname, lastname, username, email, password } = await User.find({});
+  // const { _id, firstname, lastname, email, password } = await User.find({});
   const test = await User.find({});
   const test2 = JSON.stringify(test);
   console.log("query satisfied");

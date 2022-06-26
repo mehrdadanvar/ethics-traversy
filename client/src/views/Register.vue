@@ -10,19 +10,24 @@
           </div>
           <div class="message-content">
             <li class="text">Please read this part with care</li>
-            <li class="text">Please go through the following form with your FDU email address</li>
             <li class="text">
-              Providing your First Name and Last Name will significantly assisst un in tracking your
-              contribution to the project and facilitates furthur communication between the authors
+              Please go through the following form with your FDU email address
+            </li>
+            <li class="text">
+              Providing your First Name and Last Name will significantly assisst un in
+              tracking your contribution to the project and facilitates furthur
+              communication between the authors
             </li>
             <li>
-              the user name could be an arbitrary combination of characters, preferably a memorable
-              piece of text such as first.last name
+              the user name could be an arbitrary combination of characters, preferably a
+              memorable piece of text such as first.last name
             </li>
-            <li class="text">please use your FDU email address for operating this repository</li>
             <li class="text">
-              Conidering a strong and complicated password which is longer than 5 characters, will
-              ensure the security of this portal and your information
+              please use your FDU email address for operating this repository
+            </li>
+            <li class="text">
+              Conidering a strong and complicated password which is longer than 5
+              characters, will ensure the security of this portal and your information
             </li>
           </div>
         </article>
@@ -54,18 +59,6 @@
               placeholder="e.g Obamma"
               name="lastname"
               v-model="lastname"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input
-              type="text"
-              class="input"
-              placeholder="e.g barrak.obamma"
-              name="username"
-              v-model="username"
             />
           </div>
         </div>
@@ -128,7 +121,6 @@ export default {
     return {
       firstname: "",
       lastname: "",
-      username: "",
       email: "",
       password: "",
       password2: "",
@@ -140,7 +132,6 @@ export default {
         .post("http://localhost:5000/api/users/", {
           firstname: this.firstname,
           lastname: this.lastname,
-          username: this.username,
           email: this.email,
           password: this.password,
         })
