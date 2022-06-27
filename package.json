@@ -12,6 +12,7 @@
   "author": "mehrdad anvar",
   "license": "GPL-3.0",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
