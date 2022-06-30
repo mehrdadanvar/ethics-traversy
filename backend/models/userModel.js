@@ -18,9 +18,16 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "please provide a password"],
     },
+    is_activated: {
+      type: Boolean,
+      default: false,
+    },
+    activation_code: {
+      type: String,
+    },
   },
-  { 
-    timestapms: true
+  {
+    timestapms: true,
   }
 );
 module.exports = mongoose.model("User", userSchema);

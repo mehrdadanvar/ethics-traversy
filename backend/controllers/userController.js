@@ -2,6 +2,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+console.log(process.env.SENDGRID_API_KEY);
 
 // @description Register new user
 //@route    POST /api/users
@@ -24,11 +27,14 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   // create and save the user
+  const activationCode = Math.random().toString().substr(2, 6);
   const user = await User.create({
     firstname,
     lastname,
     email,
     password: hashedPassword,
+    activation_code: activationCode,
+    // is_activated: false,
   });
   // checking to see the user and responding with user details
   if (user) {
@@ -38,14 +44,39 @@ const registerUser = asyncHandler(async (req, res) => {
       lastname: user.lastname,
       email: user.email,
       token: generateToken(user._id),
+      activation_status: user.is_activated,
     });
   } else {
     res.status(400);
     throw new Error("Invalid user data!");
   }
+  //Sending an email to the users provide email using the sendGrid API
+  const validuser = await User.findOne({ email });
+  console.log(validuser);
+  if (validuser) {
+    const message = {
+      to: validuser.email,
+      from: {
+        name: "negothics.ca",
+        email: "m.anvar@student.fdu.edu",
+      },
+      subject: "Activation Code from the Negothics Registration",
+      text: `Dear ${validuser.firstname}, Welcome no Negothics.Please Copy the code below and paste it in the activation box on the website,${validuser.activation_code}`,
+    };
+    await sgMail
+      .send(message)
+      .then((response) => console.log("email sent successfully!"))
+      .catch((error) => console.log(error.message));
+  } else {
+    throw new Error("Your email address does not exist in the database. Try again");
+  }
 
   // res.json({message:'this is to register a user'})
 });
+//@description Activate a user who has already signed up successfully
+//@route POST /api/activate
+//@access Private
+
 // @description Authenticate a new user
 //@route    POST /api/login
 //@access   Public

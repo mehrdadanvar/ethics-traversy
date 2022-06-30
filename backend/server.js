@@ -4,12 +4,7 @@ const dotenv = require("dotenv").config();
 const cors = require("cors");
 const { errorHandler } = require("../backend/middleware/errorMiddleware");
 const connectDB = require("./config/db");
-const sgMail =require("@sendgrid/mail");
 
-sgMail.setApiKey(process.env.NEGOTHICS_KEY)
-const message = {
-  to:
-}
 
 const corsOptions = {
   origin: "*",
