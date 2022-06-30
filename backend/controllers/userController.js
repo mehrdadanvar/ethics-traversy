@@ -63,10 +63,10 @@ const registerUser = asyncHandler(async (req, res) => {
       subject: "Activation Code from the Negothics Registration",
       text: `Dear ${validuser.firstname}, Welcome no Negothics.Please Copy the code below and paste it in the activation box on the website,${validuser.activation_code}`,
     };
-    await sgMail
-      .send(message)
-      .then((response) => console.log("email sent successfully!"))
-      .catch((error) => console.log(error.message));
+    // await sgMail
+    //   .send(message)
+    //   .then((response) => console.log("email sent successfully!"))
+    //   .catch((error) => console.log(error.message));
   } else {
     throw new Error("Your email address does not exist in the database. Try again");
   }
@@ -112,6 +112,16 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error("please provide both the email and password");
   }
   const user = await User.findOne({ email });
+  if (!user) {
+    res.status(400);
+    throw new Error(
+      "Unrecognized email address, please check the inbox of the mail account you provided while signing up!"
+    );
+  }
+  if (user.is_activated == false) {
+    res.status(400);
+    throw new Error("Your acount appears not to be activated");
+  }
   if (user && bcrypt.compare(password, user.password)) {
     res.json({
       _id: user.id,

@@ -28,7 +28,7 @@
         </div>
         <div class="field"></div>
         <div class="submit">
-          <button class="button is-primary">Login</button>
+          <button class="button is-primary is-large">Login</button>
         </div>
       </form>
     </div>
@@ -48,16 +48,17 @@ export default {
   },
   methods: {
     loginHandler() {
-      // const email = this.email;
-      // const password = this.password;
+      // email = this.email;
+      // password = this.password;
+      // console.log(email, password);
       axios
         .post("http://localhost:5000/api/users/login", {
           email: this.email,
           password: this.password,
         })
         .then((response) => {
-          // console.log(response);
-          alert("hoora success you are loged in");
+          console.log(response);
+          // alert("hoora success you are loged in");
         })
         .catch((error) => {
           console.log(error);
@@ -67,4 +68,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.container {
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2rem;
+  box-shadow: 1px 1px 15px black;
+}
+</style>
