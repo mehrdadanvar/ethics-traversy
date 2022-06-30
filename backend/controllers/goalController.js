@@ -20,7 +20,7 @@ const setGoal = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
     throw new Error(
-      "please inculde a text field in the request body so that the api return some shit to you"
+      "please inculde a text field in the request body so that the api returns something to you"
     );
   }
   const goal = await Goal.create({

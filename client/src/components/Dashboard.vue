@@ -89,7 +89,7 @@ export default {
           console.log(response.data);
           this.usersList = response.data.test;
         })
-        .then((error) => {
+        .catch((error) => {
           console.log(error);
         });
     },

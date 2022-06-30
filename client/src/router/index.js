@@ -39,6 +39,11 @@ const routes = [
     name: "articlebuilder",
     component: () => import("../views/AB.vue"),
   },
+  {
+    path: "/activate",
+    name: "activate",
+    component: () => import("../components/Activator.vue"),
+  },
 ];
 
 const router = createRouter({

@@ -168,7 +168,7 @@ export default {
           })
           .then((response) => {
             console.log(response);
-            alert("hoora success");
+            this.$router.push("/activate");
           })
           .catch((error) => {
             console.log(error);

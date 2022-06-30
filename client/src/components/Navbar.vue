@@ -15,6 +15,7 @@
       <div class="navbar-end">
         <router-link to="/about" class="navbar-item">About</router-link>
         <router-link to="/register" class="navbar-item">Register</router-link>
+        <!-- <router-link to="/activate" class="navbar-item">activate</router-link> -->
       </div>
     </div>
   </nav>

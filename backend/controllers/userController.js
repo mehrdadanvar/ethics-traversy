@@ -70,13 +70,37 @@ const registerUser = asyncHandler(async (req, res) => {
   } else {
     throw new Error("Your email address does not exist in the database. Try again");
   }
-
-  // res.json({message:'this is to register a user'})
 });
 //@description Activate a user who has already signed up successfully
 //@route POST /api/activate
 //@access Private
-
+//First create a function called activateuser which handles functionality for this route
+// Step one extract the users email address and claimed activation code from the request object sent from the front end and store them in an OBJECT
+const activateUser = asyncHandler(async (req, res) => {
+  const { email, secret } = req.body;
+  const retrieved_user = await User.findOne({ email });
+  if (!retrieved_user) {
+    res.status(400);
+    throw new Error(
+      "the email you provided does not exist in the database, refer to sign up again"
+    );
+  }
+  console.log(secret, retrieved_user.activation_code);
+  if (secret !== retrieved_user.activation_code) {
+    res.status(400);
+    throw new Error(
+      "the provided activation code does not match the one sent through email!"
+    );
+  }
+  if (secret === retrieved_user.activation_code) {
+    const activated_user = await User.findOneAndUpdate(
+      { email: email },
+      { is_activated: true },
+      { new: true }
+    );
+    res.status(204).json(activated_user);
+  }
+});
 // @description Authenticate a new user
 //@route    POST /api/login
 //@access   Public
@@ -137,6 +161,7 @@ const queryAll = asyncHandler(async (req, res) => {
 module.exports = {
   registerUser,
   loginUser,
+  activateUser,
   getMe,
   queryAll,
 };

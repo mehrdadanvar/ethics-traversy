@@ -26,7 +26,7 @@
             />
           </div>
         </div>
-        <div class="field" v-if="passwordCheckHandler">{{}}</div>
+        <div class="field"></div>
         <div class="submit">
           <button class="button is-primary">Login</button>
         </div>
@@ -67,5 +67,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
